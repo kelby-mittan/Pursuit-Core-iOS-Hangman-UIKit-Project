@@ -34,8 +34,8 @@
                                     <segue destination="k3V-R9-N21" kind="show" id="eKf-J6-V5N"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Play Word Guessing Game" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w3v-Fx-gSl">
-                                <rect key="frame" x="18.5" y="238" width="377" height="40"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Play &quot;Save the Swimmer&quot;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w3v-Fx-gSl">
+                                <rect key="frame" x="26.5" y="238" width="361.5" height="40"/>
                                 <fontDescription key="fontDescription" name="DINAlternate-Bold" family="DIN Alternate" pointSize="34"/>
                                 <color key="textColor" red="0.93159002590673579" green="0.86582915362248403" blue="0.51527839811813059" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
@@ -61,7 +61,7 @@
         <!--View Controller-->
         <scene sceneID="WAa-wd-Tqb">
             <objects>
-                <viewController id="k3V-R9-N21" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TwoPlayer" id="k3V-R9-N21" customClass="ViewController" customModule="Hangman" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="M1e-1e-9i1">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -136,6 +136,11 @@
                         <viewLayoutGuide key="safeArea" id="Yrt-4K-Fla"/>
                     </view>
                     <navigationItem key="navigationItem" id="SkF-XS-IHr"/>
+                    <connections>
+                        <outlet property="enteredWord" destination="Xyn-ld-GSX" id="skK-4k-sfg"/>
+                        <outlet property="inputGuessTextField" destination="4dN-iH-b5w" id="ZXd-D2-rfb"/>
+                        <outlet property="inputWordTextField" destination="tvP-Zq-cgb" id="KHd-iZ-rKg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ne1-AB-37i" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
