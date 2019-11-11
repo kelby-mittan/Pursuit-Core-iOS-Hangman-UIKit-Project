@@ -1,24 +1,169 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="FgY-cb-F3n">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Save the Swimmer-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Hangman" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="erU-Fn-MiL">
+                                <rect key="frame" x="98.5" y="338" width="217" height="47"/>
+                                <color key="backgroundColor" red="0.93159002589999995" green="0.86582915360000001" blue="0.51527839809999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <fontDescription key="fontDescription" name="DINAlternate-Bold" family="DIN Alternate" pointSize="30"/>
+                                <state key="normal" title="Two Player Game"/>
+                                <connections>
+                                    <segue destination="k3V-R9-N21" kind="show" id="Nq1-dC-3ob"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nl6-vx-fIz">
+                                <rect key="frame" x="83" y="405" width="248" height="47"/>
+                                <color key="backgroundColor" red="0.93159002589999995" green="0.86582915360000001" blue="0.51527839809999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <fontDescription key="fontDescription" name="DINAlternate-Bold" family="DIN Alternate" pointSize="30"/>
+                                <state key="normal" title="Single Player Game"/>
+                                <connections>
+                                    <segue destination="k3V-R9-N21" kind="show" id="eKf-J6-V5N"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Play Word Guessing Game" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w3v-Fx-gSl">
+                                <rect key="frame" x="18.5" y="238" width="377" height="40"/>
+                                <fontDescription key="fontDescription" name="DINAlternate-Bold" family="DIN Alternate" pointSize="34"/>
+                                <color key="textColor" red="0.93159002590673579" green="0.86582915362248403" blue="0.51527839811813059" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Nl6-vx-fIz" firstAttribute="top" secondItem="erU-Fn-MiL" secondAttribute="bottom" constant="20" id="2rk-Lv-2MD"/>
+                            <constraint firstItem="erU-Fn-MiL" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="250" id="Mt1-qF-NAF"/>
+                            <constraint firstItem="erU-Fn-MiL" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="b1D-Ug-i6s"/>
+                            <constraint firstItem="Nl6-vx-fIz" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="lV1-4o-yqU"/>
+                            <constraint firstItem="w3v-Fx-gSl" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="tvK-d2-IB6"/>
+                            <constraint firstItem="w3v-Fx-gSl" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="150" id="zCz-Yj-QSV"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Save the Swimmer" id="nhf-Se-vwg"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1047.8260869565217" y="114.50892857142857"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="WAa-wd-Tqb">
+            <objects>
+                <viewController id="k3V-R9-N21" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="M1e-1e-9i1">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter Word Player 1" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zfY-OY-6RR">
+                                <rect key="frame" x="82" y="96" width="250.5" height="35"/>
+                                <fontDescription key="fontDescription" name="DINAlternate-Bold" family="DIN Alternate" pointSize="30"/>
+                                <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="_ _ _ _ _" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xyn-ld-GSX">
+                                <rect key="frame" x="146.5" y="191" width="121.5" height="41"/>
+                                <fontDescription key="fontDescription" name="DINAlternate-Bold" family="DIN Alternate" pointSize="35"/>
+                                <color key="textColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="legoShark9" translatesAutoresizingMaskIntoConstraints="NO" id="mLk-cn-HwN">
+                                <rect key="frame" x="19.5" y="467" width="375" height="275"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="275" id="H6c-HW-2Gd"/>
+                                    <constraint firstAttribute="width" constant="375" id="nFb-cZ-h0k"/>
+                                </constraints>
+                            </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="e.g. x" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4dN-iH-b5w">
+                                <rect key="frame" x="166.5" y="299" width="81.5" height="36"/>
+                                <fontDescription key="fontDescription" name="DINAlternate-Bold" family="DIN Alternate" pointSize="24"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="enter word" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tvP-Zq-cgb">
+                                <rect key="frame" x="138.5" y="139" width="137.5" height="36"/>
+                                <fontDescription key="fontDescription" name="DINAlternate-Bold" family="DIN Alternate" pointSize="24"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Guess Letter Player 2" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="af3-Y2-6Ev">
+                                <rect key="frame" x="72" y="248" width="270" height="35"/>
+                                <fontDescription key="fontDescription" name="DINAlternate-Bold" family="DIN Alternate" pointSize="30"/>
+                                <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Saved/Dead Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6nx-0C-00I">
+                                <rect key="frame" x="93" y="777" width="228" height="35"/>
+                                <fontDescription key="fontDescription" name="DINAlternate-Bold" family="DIN Alternate" pointSize="30"/>
+                                <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Remaining Guesses" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5OY-MB-eBp">
+                                <rect key="frame" x="81.5" y="416" width="251" height="35"/>
+                                <fontDescription key="fontDescription" name="DINAlternate-Bold" family="DIN Alternate" pointSize="30"/>
+                                <color key="textColor" red="0.74723635840000002" green="0.03609869953" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.93159002589999995" green="0.86582915360000001" blue="0.51527839809999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="Yrt-4K-Fla" firstAttribute="bottom" secondItem="6nx-0C-00I" secondAttribute="bottom" constant="50" id="3dH-1m-5Xs"/>
+                            <constraint firstItem="Xyn-ld-GSX" firstAttribute="centerX" secondItem="M1e-1e-9i1" secondAttribute="centerX" id="BUP-dP-uBu"/>
+                            <constraint firstItem="4dN-iH-b5w" firstAttribute="centerX" secondItem="M1e-1e-9i1" secondAttribute="centerX" id="Deq-Kr-Fq0"/>
+                            <constraint firstItem="af3-Y2-6Ev" firstAttribute="top" secondItem="Xyn-ld-GSX" secondAttribute="bottom" constant="16" id="EAq-U9-vrO"/>
+                            <constraint firstItem="mLk-cn-HwN" firstAttribute="centerX" secondItem="M1e-1e-9i1" secondAttribute="centerX" id="EbR-nY-gI7"/>
+                            <constraint firstItem="zfY-OY-6RR" firstAttribute="centerX" secondItem="M1e-1e-9i1" secondAttribute="centerX" id="Peg-dW-RSd"/>
+                            <constraint firstItem="4dN-iH-b5w" firstAttribute="top" secondItem="af3-Y2-6Ev" secondAttribute="bottom" constant="16" id="RLs-i2-rpQ"/>
+                            <constraint firstItem="6nx-0C-00I" firstAttribute="top" secondItem="mLk-cn-HwN" secondAttribute="bottom" constant="35" id="UQo-9a-2BY"/>
+                            <constraint firstItem="zfY-OY-6RR" firstAttribute="top" secondItem="Yrt-4K-Fla" secondAttribute="top" constant="8" id="WGZ-Lq-LwR"/>
+                            <constraint firstItem="mLk-cn-HwN" firstAttribute="top" secondItem="5OY-MB-eBp" secondAttribute="bottom" constant="16" id="WTz-wb-ht1"/>
+                            <constraint firstItem="5OY-MB-eBp" firstAttribute="centerX" secondItem="M1e-1e-9i1" secondAttribute="centerX" id="Xv3-tc-3CA"/>
+                            <constraint firstItem="6nx-0C-00I" firstAttribute="centerX" secondItem="M1e-1e-9i1" secondAttribute="centerX" id="buq-D3-VDc"/>
+                            <constraint firstItem="tvP-Zq-cgb" firstAttribute="centerX" secondItem="M1e-1e-9i1" secondAttribute="centerX" id="gBR-xq-bcg"/>
+                            <constraint firstItem="tvP-Zq-cgb" firstAttribute="top" secondItem="zfY-OY-6RR" secondAttribute="bottom" constant="8" id="iw3-hP-Bq1"/>
+                            <constraint firstItem="af3-Y2-6Ev" firstAttribute="centerX" secondItem="M1e-1e-9i1" secondAttribute="centerX" id="pLg-ka-jj9"/>
+                            <constraint firstItem="Xyn-ld-GSX" firstAttribute="top" secondItem="tvP-Zq-cgb" secondAttribute="bottom" constant="16" id="v7Z-bL-9an"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Yrt-4K-Fla"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="SkF-XS-IHr"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ne1-AB-37i" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1850.7246376811595" y="114.50892857142857"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="PFD-jb-EcK">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="FgY-cb-F3n" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="lIh-fh-DdY">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="KDO-dY-MZc"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fBD-db-UnZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="114.50892857142857"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="legoShark9" width="1740" height="1462"/>
+    </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="Nq1-dC-3ob"/>
+    </inferredMetricsTieBreakers>
 </document>
