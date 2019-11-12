@@ -14,21 +14,35 @@ class ViewController: UIViewController {
     @IBOutlet weak var enteredWord: UILabel!
     @IBOutlet weak var inputGuessTextField: UITextField!
     
-    var enteredGuess = Set<String>()
-    var wordEntered = ""
+    private var enteredGuess = Set<String>()
+    private var wordEntered = ""
+    private var letterArray = [String]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         inputWordTextField?.delegate = self
         inputGuessTextField?.delegate = self
+//        enteredWord.text = "xxx"
     }
-
+    func underScores() -> String {
+        var enterWord = ""
+        for _ in wordEntered {
+            letterArray.append("_ ")
+        }
+//        for char in letterArray {
+//            print(char, terminator: " ")
+//        }
+        enterWord = letterArray.joined()
+        return enterWord
+    }
+    
     func checkUsersGuess() {
-    //        guessingGameModel.getResult(inputTextField)
-        let enterWord = inputWordTextField.text ?? ""
+//        let enterWord = inputWordTextField.text ?? ""
         let guessedLetter = inputGuessTextField.text ?? "x"
-        
-        if enterWord.contains(guessedLetter) {
+        print(wordEntered)
+        enteredGuess.insert(guessedLetter)
+        if wordEntered.contains(guessedLetter) {
             print("correct")
         } else {
             print("nope")
@@ -65,18 +79,15 @@ extension ViewController: UITextFieldDelegate {
         
         // dismiss keyboard
         textField.resignFirstResponder()
-        print(inputWordTextField.text ?? "error")
+        
+//        print(inputWordTextField.text ?? "error")
         wordEntered = inputWordTextField.text ?? ""
         let letterGuessed = inputGuessTextField.text ?? ""
         print(inputGuessTextField.text ?? "error")
+        enteredWord.text = underScores()
         checkUsersGuess()
-        print(wordEntered)
+//        print(wordEntered)
         print(letterGuessed)
-        if wordEntered.contains(letterGuessed) {
-            print("correct")
-        } else {
-            print("oh so wrong")
-        }
         // clear textField
         textField.text = ""
         
