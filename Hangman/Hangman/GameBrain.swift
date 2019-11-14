@@ -14,5 +14,21 @@ class GameBrain {
 
 
     var alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
+    
+    var inputLetterArray = [String]()
+    var wordAsArray = [String]()
+    
+    var arrayOfCorrect = [String]()
+    
+//    func underScores(_ forWord: String) {
+//
+//        if let arrayOfWords = randomInfo?.words {
+//            let arrayOfAst = arrayOfWords.map { String(repeating: "*", count: $0.count)}
+//            print(arrayOfAst)
+//            wordBankLabel.text = arrayOfAst.joined(separator: " ")
+//        }
+//
+//    }
+    
 }
 
