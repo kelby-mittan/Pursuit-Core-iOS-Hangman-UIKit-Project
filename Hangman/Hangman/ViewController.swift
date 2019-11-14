@@ -15,12 +15,13 @@ class ViewController: UIViewController {
     @IBOutlet weak var inputGuessTextField: UITextField!
     @IBOutlet weak var legoImage: UIImageView!
     @IBOutlet weak var player2Label: UILabel!
+    @IBOutlet weak var savedOrDeadLabel: UILabel!
     
     private var enteredGuess = Set<String>()
     private var wordEntered = ""
     private var letterArray = [String]()
     private var letterGuess = ""
-    private var guessCount = 7
+    private var guessCount = 6
     private var enterWord = ""
     private var incorrectGuess = Bool()
     private var gameOverBool = false
@@ -63,35 +64,40 @@ class ViewController: UIViewController {
         } else {
             guessCount -= 1
             incorrectGuess = true
+            player2Label.text = "\(guessCount) guesses left"
+            player2Label.textColor = .red
             print("nope")
         }
     }
     
     func gameOver() {
-        if guessCount == 0 || !letterArray.contains("_") {
+        if guessCount == 0 {
             gameOverBool = true
-            legoImage.image = UIImage(named: "legoShark8")
+            player2Label.text = "HE DEAD !!"
+            inputGuessTextField.isEnabled = false
+        } else if !letterArray.contains("_") {
+            gameOverBool = true
+            player2Label.text = "You Saved Him !!"
+            inputGuessTextField.isEnabled = false
         }
     }
     
     func changeImage() {
         switch guessCount {
-        case 7:
-            legoImage.image = UIImage(named: "legoShark9")
         case 6:
-            legoImage.image = UIImage(named: "legoShark2")
+            legoImage.image = UIImage(named: "legoShark1")
         case 5:
-            legoImage.image = UIImage(named: "legoShark3")
+            legoImage.image = UIImage(named: "legoShark2")
         case 4:
-            legoImage.image = UIImage(named: "legoShark4")
+            legoImage.image = UIImage(named: "legoShark3")
         case 3:
-            legoImage.image = UIImage(named: "legoShark5")
+            legoImage.image = UIImage(named: "legoShark4")
         case 2:
-            legoImage.image = UIImage(named: "legoShark6")
+            legoImage.image = UIImage(named: "legoShark5")
         case 1:
-            legoImage.image = UIImage(named: "legoShark7")
+            legoImage.image = UIImage(named: "legoShark6")
         case 0:
-            legoImage.image = UIImage(named: "legoShark8")
+            legoImage.image = UIImage(named: "legoShark7")
         default:
             legoImage.image = UIImage(named: "legoShark8")
         }
@@ -127,7 +133,7 @@ extension ViewController: UITextFieldDelegate {
                 return false
             }
             let currentText = text + string
-            if currentText.count > 6 {
+            if currentText.count > 7 {
                 return false
             }
         }
@@ -138,22 +144,28 @@ extension ViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         
         textField.resignFirstResponder()
-//        gameOver()
+        
         if textField == inputWordTextField {
-            wordEntered = inputWordTextField.text ?? ""
+            legoImage.image = UIImage(named: "legoShark1")
+            wordEntered = inputWordTextField.text?.lowercased() ?? ""
             enteredWord.text = underScores()
             inputWordTextField.isEnabled = false
             player2Label?.text = "Guess A Letter !!"
             print(wordEntered)
         } else if textField == inputGuessTextField {
-            
-            letterGuess = inputGuessTextField.text ?? ""
-//            guessCount -= 1
+
+            letterGuess = inputGuessTextField.text?.lowercased() ?? ""
             checkUsersGuess()
             replaceUnderscores()
+            
             if incorrectGuess {
                 changeImage()
+            } else if gameOverBool {
+                
             }
+            gameOver()
+            print(gameOverBool)
+            print(letterArray)
         }
         textField.text = ""
         
