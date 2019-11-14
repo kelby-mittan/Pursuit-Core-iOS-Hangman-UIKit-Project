@@ -9,13 +9,12 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
     @IBOutlet weak var inputWordTextField: UITextField!
     @IBOutlet weak var enteredWord: UILabel!
     @IBOutlet weak var inputGuessTextField: UITextField!
     @IBOutlet weak var legoImage: UIImageView!
     @IBOutlet weak var player2Label: UILabel!
-    @IBOutlet weak var savedOrDeadLabel: UILabel!
     
     private var enteredGuess = Set<String>()
     private var wordEntered = ""
@@ -31,7 +30,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         inputWordTextField?.delegate = self
         inputGuessTextField?.delegate = self
         player2Label?.text = ""
@@ -49,7 +48,7 @@ class ViewController: UIViewController {
     
     func replaceUnderscores() {
         for (index, char) in wordEntered.enumerated() {
-
+            
             if String(char) == letterGuess {
                 letterArray[index] = letterGuess
             }
@@ -125,9 +124,20 @@ extension ViewController: UITextFieldDelegate {
                 return false
             }
             let currentText = text + string
-            if currentText.count > 1 {
+            
+            // source: https://stackoverflow.com/questions/29504304/detect-backspace-event-in-uitextfield/29505548
+            
+            let  char = string.cString(using: String.Encoding.utf8)!
+            let isBackSpace = strcmp(char, "\\b")
+            
+            if (isBackSpace == -92) || currentText.count > 1 {
                 return false
             }
+            
+            
+//            if currentText.count > 1) {
+//                return false
+//            }
         } else {
             guard let text = textField.text else {
                 return false
@@ -153,7 +163,7 @@ extension ViewController: UITextFieldDelegate {
             player2Label?.text = "Guess A Letter !!"
             print(wordEntered)
         } else if textField == inputGuessTextField {
-
+            
             letterGuess = inputGuessTextField.text?.lowercased() ?? ""
             checkUsersGuess()
             replaceUnderscores()

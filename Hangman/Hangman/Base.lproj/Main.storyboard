@@ -32,7 +32,7 @@
                                 <state key="normal" title="Single Player Game"/>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Play &quot;Save the Swimmer&quot;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w3v-Fx-gSl">
-                                <rect key="frame" x="26.5" y="238" width="361.5" height="40"/>
+                                <rect key="frame" x="26" y="238" width="362" height="40"/>
                                 <fontDescription key="fontDescription" name="DINAlternate-Bold" family="DIN Alternate" pointSize="34"/>
                                 <color key="textColor" red="0.93159002590673579" green="0.86582915362248403" blue="0.51527839811813059" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
@@ -94,13 +94,6 @@
                                 <color key="textColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Saved/Dead Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6nx-0C-00I">
-                                <rect key="frame" x="93" y="608" width="228" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="DINAlternate-Bold" family="DIN Alternate" pointSize="30"/>
-                                <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.93159002589999995" green="0.86582915360000001" blue="0.51527839809999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
@@ -128,7 +121,6 @@
                         <outlet property="inputWordTextField" destination="tvP-Zq-cgb" id="KHd-iZ-rKg"/>
                         <outlet property="legoImage" destination="mLk-cn-HwN" id="w2a-Hu-oMe"/>
                         <outlet property="player2Label" destination="af3-Y2-6Ev" id="8jk-B7-hjn"/>
-                        <outlet property="savedOrDeadLabel" destination="6nx-0C-00I" id="kxN-GM-2xP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ne1-AB-37i" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
