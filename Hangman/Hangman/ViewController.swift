@@ -46,6 +46,8 @@ class ViewController: UIViewController {
     func checkUsersGuess() {
         
         if game.wordEntered.contains(game.letterGuess) {
+            player2Label.text = "Good Guess !!"
+            player2Label.textColor = .blue
             print("correct")
         } else {
             game.guessCount -= 1
@@ -60,6 +62,7 @@ class ViewController: UIViewController {
         if game.guessCount == 0 {
             game.gameOverBool = true
             player2Label.text = "HE DEAD !!"
+            inputGuessTextField.isHidden = true
             inputGuessTextField.isEnabled = false
         } else if !game.letterArray.contains("_") {
             game.gameOverBool = true
