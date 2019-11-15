@@ -23,18 +23,9 @@ class ViewController: UIViewController {
         
         player2Label?.text = ""
         enteredWord?.text = ""
-        
         inputWordTextField?.delegate = self
         inputGuessTextField?.delegate = self
         
-    }
-    
-    func underScores() -> String {
-        for _ in game.wordEntered {
-            game.letterArray.append("_")
-        }
-        game.enterWord = game.letterArray.joined(separator: " ")
-        return game.enterWord
     }
     
     func replaceUnderscores() {
@@ -93,9 +84,15 @@ class ViewController: UIViewController {
             legoImage.image = UIImage(named: "legoShark8")
         }
     }
+    @IBAction func newGameAction(_ sender: UIButton) {
+        inputWordTextField.isEnabled = true
+        player2Label?.text = ""
+        enteredWord?.text = ""
+        game.letterArray.removeAll()
+        game.guessCount = 6
+    }
     
 }
-
 
 extension ViewController: UITextFieldDelegate {
     
@@ -122,7 +119,7 @@ extension ViewController: UITextFieldDelegate {
             let  char = string.cString(using: String.Encoding.utf8)!
             let isBackSpace = strcmp(char, "\\b")
             let textAsSet: Set = [currentText]
-            if currentText.count > 1 || (isBackSpace == -92) || textAsSet.isSubset(of: game.enteredGuess) {
+            if currentText.count != 1 || (isBackSpace == -92) || textAsSet.isSubset(of: game.enteredGuess) {
                 return false
             }
 
@@ -131,8 +128,7 @@ extension ViewController: UITextFieldDelegate {
                 return false
             }
             let currentText = text + string
-            let textAsSet: Set = [currentText]
-            if currentText.count > 7 {
+            if currentText.count > 7 || !game.alphabet.contains(string) {
                 return false
             }
         }
@@ -147,7 +143,7 @@ extension ViewController: UITextFieldDelegate {
         if textField == inputWordTextField {
             legoImage.image = UIImage(named: "legoShark1")
             game.wordEntered = inputWordTextField.text?.lowercased() ?? ""
-            enteredWord.text = underScores()
+            enteredWord.text = game.underScores()
             inputWordTextField.isEnabled = false
             player2Label?.text = "Guess A Letter !!"
             print(game.wordEntered)
@@ -168,7 +164,6 @@ extension ViewController: UITextFieldDelegate {
             print(game.letterArray)
         }
         textField.text = ""
-        
         return true
     }
 }

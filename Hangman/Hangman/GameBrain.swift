@@ -26,5 +26,13 @@ class GameBrain {
     var inputLetterArray = [String]()
     var wordAsArray = [String]()
     
+    func underScores() -> String {
+        for _ in wordEntered {
+            letterArray.append("_")
+        }
+        enterWord = letterArray.joined(separator: " ")
+        return enterWord
+    }
+    
 }
 
