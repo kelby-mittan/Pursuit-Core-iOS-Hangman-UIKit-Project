@@ -133,6 +133,7 @@
                         <outlet property="inputGuessTextField" destination="4dN-iH-b5w" id="ZXd-D2-rfb"/>
                         <outlet property="inputWordTextField" destination="tvP-Zq-cgb" id="KHd-iZ-rKg"/>
                         <outlet property="legoImage" destination="mLk-cn-HwN" id="w2a-Hu-oMe"/>
+                        <outlet property="player1Message" destination="zfY-OY-6RR" id="RyU-P3-01H"/>
                         <outlet property="player2Label" destination="af3-Y2-6Ev" id="8jk-B7-hjn"/>
                     </connections>
                 </viewController>

@@ -10,6 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    @IBOutlet weak var player1Message: UILabel!
     @IBOutlet weak var inputWordTextField: UITextField!
     @IBOutlet weak var enteredWord: UILabel!
     @IBOutlet weak var inputGuessTextField: UITextField!
@@ -23,6 +24,10 @@ class ViewController: UIViewController {
         
         player2Label?.text = ""
         enteredWord?.text = ""
+        inputGuessTextField?.isEnabled = false
+        inputGuessTextField?.isHidden = true
+        legoImage?.layer.cornerRadius = 15
+//        legoImage?.layer.borderWidth = 8
         inputWordTextField?.delegate = self
         inputGuessTextField?.delegate = self
         
@@ -59,6 +64,8 @@ class ViewController: UIViewController {
         } else if !game.letterArray.contains("_") {
             game.gameOverBool = true
             player2Label.text = "YOU SAVED HIM !!"
+            inputGuessTextField.isHidden = true
+            legoImage.image = UIImage(named: "legoShark10")
             player2Label.textColor = .blue
             inputGuessTextField.isEnabled = false
         }
@@ -86,10 +93,13 @@ class ViewController: UIViewController {
     }
     @IBAction func newGameAction(_ sender: UIButton) {
         inputWordTextField.isEnabled = true
+        inputWordTextField.isHidden = false
+        player1Message.isHidden = false
         player2Label?.text = ""
         enteredWord?.text = ""
         game.letterArray.removeAll()
         game.guessCount = 6
+        game.enteredGuess.removeAll()
     }
     
 }
@@ -119,6 +129,7 @@ extension ViewController: UITextFieldDelegate {
             let  char = string.cString(using: String.Encoding.utf8)!
             let isBackSpace = strcmp(char, "\\b")
             let textAsSet: Set = [currentText]
+            
             if currentText.count != 1 || (isBackSpace == -92) || textAsSet.isSubset(of: game.enteredGuess) {
                 return false
             }
@@ -145,6 +156,10 @@ extension ViewController: UITextFieldDelegate {
             game.wordEntered = inputWordTextField.text?.lowercased() ?? ""
             enteredWord.text = game.underScores()
             inputWordTextField.isEnabled = false
+            inputWordTextField.isHidden = true
+            inputGuessTextField.isEnabled = true
+            inputGuessTextField.isHidden = false
+            player1Message.isHidden = true
             player2Label?.text = "Guess A Letter !!"
             print(game.wordEntered)
         } else if textField == inputGuessTextField {
