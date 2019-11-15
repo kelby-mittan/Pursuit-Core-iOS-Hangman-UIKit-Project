@@ -10,6 +10,8 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    @IBOutlet weak var twoPlayerButton: UIButton!
+    @IBOutlet weak var onePlayerButton: UIButton!
     @IBOutlet weak var player1Message: UILabel!
     @IBOutlet weak var inputWordTextField: UITextField!
     @IBOutlet weak var enteredWord: UILabel!
@@ -22,6 +24,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        twoPlayerButton?.layer.cornerRadius = 15
+        onePlayerButton?.layer.cornerRadius = 15
         player2Label?.text = ""
         enteredWord?.text = ""
         inputGuessTextField?.isEnabled = false
@@ -61,8 +65,14 @@ class ViewController: UIViewController {
         if game.guessCount == 0 {
             game.gameOverBool = true
             player2Label.text = "HE DEAD !!"
+            player2Label.font = player2Label.font.withSize(50)
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                self.enteredWord.text = "The word was \(self.game.wordEntered)"
+            }
             inputGuessTextField.isHidden = true
             inputGuessTextField.isEnabled = false
+            
         } else if !game.letterArray.contains("_") {
             game.gameOverBool = true
             player2Label.text = "YOU SAVED HIM !!"
@@ -112,7 +122,7 @@ extension ViewController: UITextFieldDelegate {
             let isBackSpace = strcmp(char, "\\b")
             let textAsSet: Set = [currentText]
             
-            if currentText.count != 1 || (isBackSpace == -92) || textAsSet.isSubset(of: game.enteredGuess) {
+            if currentText.count != 1 || (isBackSpace == -92) || textAsSet.isSubset(of: game.enteredGuess) || !game.alphabet.contains(string) {
                 return false
             }
 
@@ -146,16 +156,18 @@ extension ViewController: UITextFieldDelegate {
             player2Label?.textColor = .blue
             print(game.wordEntered)
         } else if textField == inputGuessTextField {
-            game.letterGuess = inputGuessTextField.text?.lowercased() ?? ""
-            checkUsersGuess()
-            replaceUnderscores()
-            game.enteredGuess.insert(game.letterGuess)
-            if game.incorrectGuess {
+            
+            if textField.text?.count == 1 {
+                game.letterGuess = inputGuessTextField.text?.lowercased() ?? ""
+                checkUsersGuess()
+                replaceUnderscores()
+                game.enteredGuess.insert(game.letterGuess)
                 game.changeImage(legoImage)
+                gameOver()
+                print(game.gameOverBool)
+                print(game.letterArray)
             }
-            gameOver()
-            print(game.gameOverBool)
-            print(game.letterArray)
+            
         }
         textField.text = ""
         return true

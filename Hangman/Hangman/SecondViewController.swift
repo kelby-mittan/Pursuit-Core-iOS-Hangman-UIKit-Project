@@ -62,11 +62,18 @@ class SecondViewController: UIViewController {
             if game.guessCount == 0 {
                 game.gameOverBool = true
                 messageLabel.text = "HE DEAD !!"
+                messageLabel.font = messageLabel.font.withSize(50)
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                    self.wordLabel.text = "The word was \(self.game.wordEntered)"
+                }
+                
                 userInput.isHidden = true
                 userInput.isEnabled = false
             } else if !game.letterArray.contains("_") {
                 game.gameOverBool = true
                 messageLabel.text = "YOU SAVED HIM !!"
+                messageLabel.font = messageLabel.font.withSize(50)
                 userInput.isHidden = true
                 legoImage2.image = UIImage(named: "legoShark10")
                 messageLabel.textColor = .blue
@@ -115,7 +122,7 @@ class SecondViewController: UIViewController {
                 let isBackSpace = strcmp(char, "\\b")
                 let textAsSet: Set = [currentText]
                 
-                if currentText.count != 1 || (isBackSpace == -92) || textAsSet.isSubset(of: game.enteredGuess) {
+                if currentText.count != 1 || (isBackSpace == -92) || textAsSet.isSubset(of: game.enteredGuess) || !game.alphabet.contains(string) {
                     return false
                 }
 
@@ -132,18 +139,21 @@ class SecondViewController: UIViewController {
             
             if textField == userInput {
                 
-                game.letterGuess = userInput.text?.lowercased() ?? ""
-                
-                checkUsersGuess()
-                replaceUnderscores()
-                
-                game.enteredGuess.insert(game.letterGuess)
-                
-                game.changeImage(legoImage2)
+                if textField.text?.count == 1 {
+                    game.letterGuess = userInput.text?.lowercased() ?? ""
                     
-                gameOver()
-                print(game.gameOverBool)
-                print(game.letterArray)
+                    checkUsersGuess()
+                    replaceUnderscores()
+                    
+                    game.enteredGuess.insert(game.letterGuess)
+                    
+                    game.changeImage(legoImage2)
+                        
+                    gameOver()
+                    print(game.gameOverBool)
+                    print(game.letterArray)
+                }
+                
             }
             textField.text = ""
             return true

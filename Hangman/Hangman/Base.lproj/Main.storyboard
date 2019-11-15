@@ -16,17 +16,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="erU-Fn-MiL">
-                                <rect key="frame" x="98.5" y="338" width="217" height="47"/>
-                                <color key="backgroundColor" red="0.93159002589999995" green="0.86582915360000001" blue="0.51527839809999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <fontDescription key="fontDescription" name="DINAlternate-Bold" family="DIN Alternate" pointSize="30"/>
-                                <state key="normal" title="Two Player Game"/>
-                                <connections>
-                                    <segue destination="k3V-R9-N21" kind="show" id="Nq1-dC-3ob"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nl6-vx-fIz">
-                                <rect key="frame" x="83" y="405" width="248" height="47"/>
+                                <rect key="frame" x="72.5" y="345" width="269" height="47"/>
                                 <color key="backgroundColor" red="0.93159002589999995" green="0.86582915360000001" blue="0.51527839809999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <fontDescription key="fontDescription" name="DINAlternate-Bold" family="DIN Alternate" pointSize="30"/>
                                 <state key="normal" title="Single Player Game"/>
@@ -35,24 +26,39 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Play &quot;Save the Swimmer&quot;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w3v-Fx-gSl">
-                                <rect key="frame" x="26" y="238" width="362" height="40"/>
+                                <rect key="frame" x="26" y="163" width="362" height="40"/>
                                 <fontDescription key="fontDescription" name="DINAlternate-Bold" family="DIN Alternate" pointSize="34"/>
                                 <color key="textColor" red="0.93159002590673579" green="0.86582915362248403" blue="0.51527839811813059" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="erU-Fn-MiL">
+                                <rect key="frame" x="72.5" y="278" width="269" height="47"/>
+                                <color key="backgroundColor" red="0.93159002589999995" green="0.86582915360000001" blue="0.51527839809999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <fontDescription key="fontDescription" name="DINAlternate-Bold" family="DIN Alternate" pointSize="30"/>
+                                <state key="normal" title="Two Player Game"/>
+                                <connections>
+                                    <segue destination="k3V-R9-N21" kind="show" id="Nq1-dC-3ob"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Nl6-vx-fIz" firstAttribute="top" secondItem="erU-Fn-MiL" secondAttribute="bottom" constant="20" id="2rk-Lv-2MD"/>
-                            <constraint firstItem="erU-Fn-MiL" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="250" id="Mt1-qF-NAF"/>
-                            <constraint firstItem="erU-Fn-MiL" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="b1D-Ug-i6s"/>
+                            <constraint firstItem="erU-Fn-MiL" firstAttribute="centerX" secondItem="w3v-Fx-gSl" secondAttribute="centerX" id="BMR-m0-9Xf"/>
+                            <constraint firstItem="erU-Fn-MiL" firstAttribute="top" secondItem="w3v-Fx-gSl" secondAttribute="bottom" constant="75" id="VBb-4o-DQi"/>
+                            <constraint firstItem="erU-Fn-MiL" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.65" id="ff5-FV-tEP"/>
                             <constraint firstItem="Nl6-vx-fIz" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="lV1-4o-yqU"/>
                             <constraint firstItem="w3v-Fx-gSl" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="tvK-d2-IB6"/>
-                            <constraint firstItem="w3v-Fx-gSl" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="150" id="zCz-Yj-QSV"/>
+                            <constraint firstItem="w3v-Fx-gSl" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="75" id="zCz-Yj-QSV"/>
+                            <constraint firstItem="Nl6-vx-fIz" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.65" id="zMH-7C-aeI"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="Save the Swimmer" id="nhf-Se-vwg"/>
+                    <connections>
+                        <outlet property="onePlayerButton" destination="Nl6-vx-fIz" id="ywG-X4-QGf"/>
+                        <outlet property="twoPlayerButton" destination="erU-Fn-MiL" id="aa5-Z8-T49"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
