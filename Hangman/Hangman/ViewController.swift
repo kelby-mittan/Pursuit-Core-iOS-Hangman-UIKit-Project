@@ -74,24 +74,24 @@ class ViewController: UIViewController {
         }
     }
     
-    func changeImage() {
+    func changeImage(_ image: UIImageView!) {
         switch game.guessCount {
         case 6:
-            legoImage.image = UIImage(named: "legoShark1")
+            image.image = UIImage(named: "legoShark1")
         case 5:
-            legoImage.image = UIImage(named: "legoShark2")
+            image.image = UIImage(named: "legoShark2")
         case 4:
-            legoImage.image = UIImage(named: "legoShark3")
+            image.image = UIImage(named: "legoShark3")
         case 3:
-            legoImage.image = UIImage(named: "legoShark4")
+            image.image = UIImage(named: "legoShark4")
         case 2:
-            legoImage.image = UIImage(named: "legoShark5")
+            image.image = UIImage(named: "legoShark5")
         case 1:
-            legoImage.image = UIImage(named: "legoShark6")
+            image.image = UIImage(named: "legoShark6")
         case 0:
-            legoImage.image = UIImage(named: "legoShark7")
+            image.image = UIImage(named: "legoShark7")
         default:
-            legoImage.image = UIImage(named: "legoShark8")
+            image.image = UIImage(named: "legoShark8")
         }
     }
     @IBAction func newGameAction(_ sender: UIButton) {
@@ -142,7 +142,7 @@ extension ViewController: UITextFieldDelegate {
                 return false
             }
             let currentText = text + string
-            if currentText.count > 7 || !game.alphabet.contains(string) {
+            if currentText.count > 8 || !game.alphabet.contains(string) {
                 return false
             }
         }
@@ -173,7 +173,7 @@ extension ViewController: UITextFieldDelegate {
             game.enteredGuess.insert(game.letterGuess)
             
             if game.incorrectGuess {
-                changeImage()
+                changeImage(legoImage)
             } else if game.gameOverBool {
                 
             }

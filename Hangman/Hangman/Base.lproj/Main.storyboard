@@ -30,6 +30,9 @@
                                 <color key="backgroundColor" red="0.93159002589999995" green="0.86582915360000001" blue="0.51527839809999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <fontDescription key="fontDescription" name="DINAlternate-Bold" family="DIN Alternate" pointSize="30"/>
                                 <state key="normal" title="Single Player Game"/>
+                                <connections>
+                                    <segue destination="Rh7-eI-uKI" kind="show" id="PyW-M7-W5w"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Play &quot;Save the Swimmer&quot;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w3v-Fx-gSl">
                                 <rect key="frame" x="26" y="238" width="362" height="40"/>
@@ -139,7 +142,78 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ne1-AB-37i" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1850.7246376811595" y="114.50892857142857"/>
+            <point key="canvasLocation" x="2181" y="-153"/>
+        </scene>
+        <!--Second View Controller-->
+        <scene sceneID="aOG-wa-HcR">
+            <objects>
+                <viewController id="Rh7-eI-uKI" customClass="SecondViewController" customModule="Hangman" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="P50-d8-Iiy">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="legoShark1" translatesAutoresizingMaskIntoConstraints="NO" id="8uR-OL-yCd">
+                                <rect key="frame" x="20" y="108" width="374" height="269"/>
+                            </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="247" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="guess letter" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5eQ-O8-LH6">
+                                <rect key="frame" x="138.5" y="465.5" width="137.5" height="34"/>
+                                <fontDescription key="fontDescription" name="DINAlternate-Bold" family="DIN Alternate" pointSize="22"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="248" verticalHuggingPriority="251" text="Guess Letter Player 2" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="13i-iz-Qkl">
+                                <rect key="frame" x="94.5" y="428" width="225" height="29.5"/>
+                                <fontDescription key="fontDescription" name="DINAlternate-Bold" family="DIN Alternate" pointSize="25"/>
+                                <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bbI-fz-CbC">
+                                <rect key="frame" x="163" y="811" width="88" height="35"/>
+                                <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="DINAlternate-Bold" family="DIN Alternate" pointSize="19"/>
+                                <state key="normal" title="New Game">
+                                    <color key="titleColor" red="0.93159002589999995" green="0.86582915360000001" blue="0.51527839809999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                                <connections>
+                                    <action selector="newGameAction:" destination="Rh7-eI-uKI" eventType="touchUpInside" id="689-T4-zZt"/>
+                                    <action selector="newGameAction:" destination="k3V-R9-N21" eventType="touchUpInside" id="dZr-JW-ga4"/>
+                                    <action selector="newGameButton:" destination="Rh7-eI-uKI" eventType="touchUpInside" id="aDw-xb-cl6"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="248" verticalHuggingPriority="251" text="_ _ _ _ _" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AUA-SD-G1I">
+                                <rect key="frame" x="155" y="385" width="104" height="35"/>
+                                <fontDescription key="fontDescription" name="DINAlternate-Bold" family="DIN Alternate" pointSize="30"/>
+                                <color key="textColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.93159002589999995" green="0.86582915360000001" blue="0.51527839809999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="5eQ-O8-LH6" firstAttribute="top" secondItem="13i-iz-Qkl" secondAttribute="bottom" constant="8" id="A71-k9-Tuh"/>
+                            <constraint firstItem="TWz-jy-Oky" firstAttribute="trailing" secondItem="8uR-OL-yCd" secondAttribute="trailing" constant="20" id="M0E-vO-nkT"/>
+                            <constraint firstAttribute="bottom" secondItem="bbI-fz-CbC" secondAttribute="bottom" constant="50" id="VPc-Fg-zRV"/>
+                            <constraint firstItem="8uR-OL-yCd" firstAttribute="leading" secondItem="TWz-jy-Oky" secondAttribute="leading" constant="20" id="Yey-Tm-mQr"/>
+                            <constraint firstItem="8uR-OL-yCd" firstAttribute="top" secondItem="TWz-jy-Oky" secondAttribute="top" constant="20" id="dZ4-g0-VXh"/>
+                            <constraint firstItem="AUA-SD-G1I" firstAttribute="top" secondItem="8uR-OL-yCd" secondAttribute="bottom" constant="8" id="exJ-hq-vhQ"/>
+                            <constraint firstItem="8uR-OL-yCd" firstAttribute="height" secondItem="P50-d8-Iiy" secondAttribute="height" multiplier="0.3" id="jD4-TI-Fb1"/>
+                            <constraint firstItem="bbI-fz-CbC" firstAttribute="centerX" secondItem="P50-d8-Iiy" secondAttribute="centerX" id="kRT-cb-zAP"/>
+                            <constraint firstItem="AUA-SD-G1I" firstAttribute="centerX" secondItem="P50-d8-Iiy" secondAttribute="centerX" id="tIK-bu-82i"/>
+                            <constraint firstItem="5eQ-O8-LH6" firstAttribute="centerX" secondItem="P50-d8-Iiy" secondAttribute="centerX" id="wXH-By-Utc"/>
+                            <constraint firstItem="13i-iz-Qkl" firstAttribute="top" secondItem="AUA-SD-G1I" secondAttribute="bottom" constant="8" id="x2d-55-hUj"/>
+                            <constraint firstItem="13i-iz-Qkl" firstAttribute="centerX" secondItem="P50-d8-Iiy" secondAttribute="centerX" id="yzP-dd-1HX"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="TWz-jy-Oky"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="MLs-d1-Tur"/>
+                    <connections>
+                        <outlet property="legoImage2" destination="8uR-OL-yCd" id="kQI-FI-SFy"/>
+                        <outlet property="messageLabel" destination="13i-iz-Qkl" id="ri3-Ye-PN3"/>
+                        <outlet property="userInput" destination="5eQ-O8-LH6" id="dTb-aw-LAU"/>
+                        <outlet property="wordLabel" destination="AUA-SD-G1I" id="Ipu-RK-gXk"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="47e-EQ-CaI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2180" y="566"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="PFD-jb-EcK">
@@ -161,6 +235,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="legoShark1" width="2200" height="1468"/>
         <image name="legoShark9" width="1740" height="1462"/>
     </resources>
 </document>
