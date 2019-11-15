@@ -47,5 +47,29 @@ class GameBrain {
         return enterWord
     }
     
+    func changeImage(_ image: UIImageView!) {
+        switch guessCount {
+        case 6:
+            image.image = UIImage(named: "legoShark1")
+        case 5:
+            image.image = UIImage(named: "legoShark2")
+        case 4:
+            image.image = UIImage(named: "legoShark3")
+        case 3:
+            image.image = UIImage(named: "legoShark4")
+        case 2:
+            image.image = UIImage(named: "legoShark5")
+        case 1:
+            image.image = UIImage(named: "legoShark6")
+        case 0:
+            image.image = UIImage(named: "legoShark7")
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                image.image = UIImage(named: "legoShark8")
+            }
+        default:
+            image.image = UIImage(named: "legoShark8")
+        }
+    }
+    
 }
 

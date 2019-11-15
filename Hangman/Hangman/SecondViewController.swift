@@ -15,7 +15,6 @@ class SecondViewController: UIViewController {
     @IBOutlet weak var userInput: UITextField!
     
     var game = GameBrain()
-//    var wordEntered: String
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,10 +32,8 @@ class SecondViewController: UIViewController {
     @IBAction func newGameButton(_ sender: UIButton!) {
         
     }
-    
         
-        
-        func replaceUnderscores() {
+    func replaceUnderscores() {
             for (index, char) in game.wordEntered.enumerated() {
                 
                 if String(char) == game.letterGuess {
@@ -76,27 +73,6 @@ class SecondViewController: UIViewController {
                 userInput.isEnabled = false
             }
         }
-        
-        func changeImage(_ image: UIImageView!) {
-            switch game.guessCount {
-            case 6:
-                image.image = UIImage(named: "legoShark1")
-            case 5:
-                image.image = UIImage(named: "legoShark2")
-            case 4:
-                image.image = UIImage(named: "legoShark3")
-            case 3:
-                image.image = UIImage(named: "legoShark4")
-            case 2:
-                image.image = UIImage(named: "legoShark5")
-            case 1:
-                image.image = UIImage(named: "legoShark6")
-            case 0:
-                image.image = UIImage(named: "legoShark7")
-            default:
-                image.image = UIImage(named: "legoShark8")
-            }
-        }
     
         @IBAction func newGameAction(_ sender: UIButton) {
             legoImage2.image = UIImage(named: "legoShark1")
@@ -111,7 +87,6 @@ class SecondViewController: UIViewController {
             wordLabel?.text = game.underScoresTwo()
             print(game.wordEntered)
         }
-        
     }
 
     extension SecondViewController: UITextFieldDelegate {
@@ -154,18 +129,18 @@ class SecondViewController: UIViewController {
             textField.resignFirstResponder()
         
                 print(game.wordEntered)
+            
             if textField == userInput {
                 
                 game.letterGuess = userInput.text?.lowercased() ?? ""
+                
                 checkUsersGuess()
                 replaceUnderscores()
+                
                 game.enteredGuess.insert(game.letterGuess)
                 
-                if game.incorrectGuess {
-                    changeImage(legoImage2)
-                } else if game.gameOverBool {
+                game.changeImage(legoImage2)
                     
-                }
                 gameOver()
                 print(game.gameOverBool)
                 print(game.letterArray)
